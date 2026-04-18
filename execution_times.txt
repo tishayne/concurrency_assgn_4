@@ -1,0 +1,18 @@
+Unsafe Implementation:
+Execution time: infinity
+I ran it multiple times on my machien and it keeps getting stuck.
+Because it is not thread-safe since we are only using a LinkedList.
+We need a safer DS like concurrentLL.
+
+Safe Implementation:
+Execution time: 6963 ms
+
+Concurrent Implementation:
+Execution time: 7886 ms
+
+Barriers and Latches:
+Execution time: 567 ms
+Production and Consumpion is much cleaner, because we wait for the producers to finish,
+before we start consuning. Before if the queue was empty the consumers keps spinning -> lot of useless poll calls.
+--> Contention on the queue, and more CPU time wasted.
+Now, Consumers do no t spin while the queue is empty.
